@@ -4,6 +4,7 @@ import time
 from datetime import datetime, timedelta
 import random
 import configparser
+import pytz
 
 config = configparser.ConfigParser()
 config.read_file(open(r'config.ini'))
@@ -54,12 +55,12 @@ def send():
             last_message_id = None
 
             message_time = datetime.strptime(message_timestamp, '%d.%m.%Y %H:%M:%S')
-            now = datetime.now() - timedelta(hours=2)
+            timezone = pytz.timezone('Europe/Moscow')
+            now = datetime.now(timezone)
 
             if message_time < now - timedelta(minutes=10):
                 sended_message = bot.sendMessage(channelID=channel_ID, message=message_content)
                 sended_message = sended_message.text.encode().decode('unicode-escape')
-
                 if delete_message:
                     sended_message_json = json.loads(sended_message.replace('\\', ''))
                     bot.deleteMessage(channelID=channel_ID, messageID=sended_message_json['id'])
