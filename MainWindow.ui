@@ -10,19 +10,19 @@
     <x>0</x>
     <y>0</y>
     <width>570</width>
-    <height>180</height>
+    <height>200</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>570</width>
-    <height>180</height>
+    <height>200</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>570</width>
-    <height>180</height>
+    <height>200</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -210,7 +210,7 @@ background-color: rgb(255, 255, 255);</string>
       <x>340</x>
       <y>80</y>
       <width>220</width>
-      <height>80</height>
+      <height>110</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -229,7 +229,7 @@ background-color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>170</y>
       <width>301</width>
       <height>20</height>
      </rect>
@@ -256,6 +256,26 @@ background-color: rgb(214, 198, 255);</string>
     </property>
     <property name="flat">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="notificationCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>140</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 5px;
+border: 2px solid rgb(226, 193, 255); 
+color: rgb(255, 255, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>Уведомления</string>
     </property>
    </widget>
   </widget>

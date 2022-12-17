@@ -4,6 +4,7 @@ import time
 from datetime import datetime, timedelta
 import random
 import configparser
+from plyer import notification
 import pytz
 
 config = configparser.ConfigParser()
@@ -18,6 +19,7 @@ message_content = config.get('Config', 'message_content')
 
 delete_message = eval(config.get('Config', 'delete_message'))
 random_time = eval(config.get('Config', 'random_time'))
+notifications = eval(config.get('Config', 'notifications'))
 
 bot = discum.Client(token=discord_token)
 
@@ -61,6 +63,12 @@ def send():
             if message_time < now - timedelta(minutes=10):
                 sended_message = bot.sendMessage(channelID=channel_ID, message=message_content)
                 sended_message = sended_message.text.encode().decode('unicode-escape')
+                
+                if notifications:
+                    local_time = datetime.now()
+                    local_time = local_time.strftime("%d/%m/%Y %H:%M:%S")
+                
+                    notification.notify(title="Сообщение отправлено.", message=str(local_time))
                 if delete_message:
                     sended_message_json = json.loads(sended_message.replace('\\', ''))
                     bot.deleteMessage(channelID=channel_ID, messageID=sended_message_json['id'])

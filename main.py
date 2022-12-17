@@ -51,6 +51,7 @@ class Ui(QMainWindow):
         
         delete_message = eval(config.get('Config', 'delete_message'))
         random_time = eval(config.get('Config', 'random_time'))
+        notifications = eval(config.get('Config', 'notifications'))
             
         self.discordToken.setText(discord_token)
         self.warpName.setText(warp_name)
@@ -62,6 +63,7 @@ class Ui(QMainWindow):
         
         self.deleteMessageCheckBox.setChecked(delete_message)
         self.randomTimeCheckBox.setChecked(random_time)
+        self.notificationCheckBox.setChecked(notifications)
     
     def save_config(self):
         config = configparser.ConfigParser()
@@ -76,6 +78,7 @@ class Ui(QMainWindow):
             
         config.set('Config', 'delete_message', str(self.deleteMessageCheckBox.isChecked()))
         config.set('Config', 'random_time', str(self.randomTimeCheckBox.isChecked()))
+        config.set('Config', 'notifications', str(self.notificationCheckBox.isChecked()))
     
         with open('config.ini', 'w') as config_file:
             config.write(config_file)
@@ -83,7 +86,7 @@ class Ui(QMainWindow):
     def start_button(self):
         self.save_config()      
         self.startButton.setEnabled(False)
-        self.startButton.setText('<3')
+        self.startButton.setText('by matswuuu')
 
         send_thread = threading.Thread(target=send.send, name='send_thread')
         if not send_thread.is_alive():
