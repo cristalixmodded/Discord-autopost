@@ -2,7 +2,6 @@ import json
 import discum
 import time
 from datetime import datetime, timedelta
-import pytz
 import random
 import configparser
 
