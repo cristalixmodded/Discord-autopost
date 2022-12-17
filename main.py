@@ -1,7 +1,5 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6.QtGui import QIntValidator, QIcon
-from PyQt6.QtCore import QTimer
-from PyQt6.QtTest import QTest
 from PyQt6 import uic
 import configparser
 import threading
