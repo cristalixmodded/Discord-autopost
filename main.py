@@ -85,7 +85,7 @@ class Ui(QMainWindow):
     def start_button(self):
         self.save_config()      
         self.startButton.setEnabled(False)
-        self.startButton.setText('by matswuuu')
+        self.startButton.setText('<3')
 
         send_thread = threading.Thread(target=send.send, name='send_thread')
         if not send_thread.is_alive():
